@@ -1,0 +1,9 @@
+---
+spring:
+   application:
+     name: wb3-traceserver
+   profiles:
+     active: default
+   cloud:
+     config:
+       uri: http://msconfig:3000

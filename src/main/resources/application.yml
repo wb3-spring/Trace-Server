@@ -1,0 +1,23 @@
+---
+info:
+  component: WB3 Zipkin Distributed Tracing Server
+server:
+  port: 3004
+management:
+  security:
+    enabled: false
+eureka:
+    instance:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    client:
+      serviceUrl:
+        defaultZone: http://msdiscovery:3002/eureka/
+      healthcheck:
+        enabled: true
+      registerWithEureka: true
+      fetchRegistry: true
+      registry-fetch-interval-seconds: 5
+logging:
+  level:
+    ROOT: INFO
+    org.springframework.web: INFO

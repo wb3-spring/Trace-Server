@@ -1,0 +1,15 @@
+general:
+  artifacts:
+    - "target/wb3-traceserver.jar"
+machine:
+  java:
+    version: openjdk8
+  services:
+    - docker
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker build -t $DOCKER_REPO .
+      - docker login -u $DOCKER_USER -e $DOCKER_EMAIL -p $DOCKER_PASS
+      - docker push $DOCKER_REPO
